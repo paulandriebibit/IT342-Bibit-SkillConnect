@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/auth")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
 
     @Autowired
@@ -24,11 +25,8 @@ public class AuthController {
         if (userRepository.existsByEmail(user.getEmail())) {
             return ResponseEntity.status(409).body("Email already registered");
         }
-
-        // Securely hash the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-
         return ResponseEntity.status(201).body("User registered successfully");
     }
 

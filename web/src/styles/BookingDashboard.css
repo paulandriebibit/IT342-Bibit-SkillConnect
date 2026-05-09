@@ -1,0 +1,288 @@
+/* src/styles/BookingDashboard.css - Modern Dashboard Design */
+.BookingContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.BookingHeader {
+  margin-bottom: 28px;
+}
+
+.BookingTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+
+.BookingSubtitle {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* Tabs */
+.BookingTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: white;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.TabButton {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 8px;
+}
+
+.TabButton:hover {
+  color: #0F766E;
+  background: #F8FAFC;
+}
+
+.TabButton.Active {
+  color: #0F766E;
+  background: #F0FDF4;
+}
+
+/* Stats Cards */
+.StatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.StatCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s;
+}
+
+.StatCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.StatCardIcon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.StatCardValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0F766E;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.StatCardLabel {
+  font-size: 13px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Bookings Table */
+.BookingsCard {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.BookingsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.BookingsTable th {
+  text-align: left;
+  padding: 16px 24px;
+  background: #F8FAFC;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.BookingsTable td {
+  padding: 18px 24px;
+  font-size: 14px;
+  color: #475569;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.BookingsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.BookingsTable tbody tr {
+  transition: all 0.2s;
+}
+
+.BookingsTable tbody tr:hover {
+  background: #F8FAFC;
+}
+
+/* Status Badges */
+.StatusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.StatusPending {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.StatusConfirmed {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.StatusCompleted {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.StatusCancelled {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+/* Action Buttons */
+.ActionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.ActionBtn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ActionConfirm {
+  background: #10B981;
+  color: white;
+}
+
+.ActionConfirm:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.ActionCancel {
+  background: #EF4444;
+  color: white;
+}
+
+.ActionCancel:hover {
+  background: #DC2626;
+  transform: translateY(-1px);
+}
+
+.ActionComplete {
+  background: #3B82F6;
+  color: white;
+}
+
+.ActionComplete:hover {
+  background: #2563EB;
+  transform: translateY(-1px);
+}
+
+/* Empty State */
+.EmptyBookings {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.EmptyIcon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  display: block;
+  opacity: 0.5;
+}
+
+.EmptyTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.EmptyText {
+  color: #64748B;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .BookingContainer {
+    padding: 0;
+  }
+  
+  .BookingTitle {
+    font-size: 24px;
+  }
+  
+  .BookingsTable {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .StatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .StatCardValue {
+    font-size: 28px;
+  }
+  
+  .ActionButtons {
+    flex-direction: column;
+  }
+  
+  .BookingTabs {
+    overflow-x: auto;
+  }
+  
+  .TabButton {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .StatsGrid {
+    grid-template-columns: 1fr;
+  }
+}

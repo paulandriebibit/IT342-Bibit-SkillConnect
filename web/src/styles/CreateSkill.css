@@ -1,0 +1,241 @@
+/* src/styles/CreateSkill.css - Modern Dashboard Design */
+.CreateSkillContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header */
+.CreateSkillHeader {
+  margin-bottom: 28px;
+}
+
+.CreateSkillTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+
+.CreateSkillSubtitle {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* Form Card */
+.FormCard {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid #E2E8F0;
+}
+
+.SkillForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.FormLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.FormLabelIcon {
+  font-size: 16px;
+}
+
+.FormInput {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  font-size: 14px;
+  transition: all 0.2s;
+  outline: none;
+  font-family: inherit;
+  background: #F8FAFC;
+}
+
+.FormInput:focus {
+  border-color: #0F766E;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.FormSelect {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  font-size: 14px;
+  outline: none;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.FormSelect:focus {
+  border-color: #0F766E;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.FormTextarea {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  font-size: 14px;
+  transition: all 0.2s;
+  outline: none;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+  background: #F8FAFC;
+}
+
+.FormTextarea:focus {
+  border-color: #0F766E;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.HelperText {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-top: 4px;
+}
+
+.SuccessMessage {
+  padding: 14px 16px;
+  background-color: #D1FAE5;
+  color: #065F46;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.ErrorMessage {
+  padding: 14px 16px;
+  background-color: #FEE2E2;
+  color: #DC2626;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.SubmitButton {
+  background: #0F766E;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.SubmitButton:hover:not(:disabled) {
+  background: #0D5C54;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+}
+
+.SubmitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.Spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Preview Section */
+.PreviewSection {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.PreviewTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 16px;
+}
+
+.PreviewCard {
+  background: #F8FAFC;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #E2E8F0;
+}
+
+.PreviewCategory {
+  display: inline-block;
+  background: #F0FDF4;
+  color: #0F766E;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.PreviewTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.PreviewDescription {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .CreateSkillContainer {
+    padding: 0;
+  }
+  
+  .CreateSkillTitle {
+    font-size: 24px;
+  }
+  
+  .FormCard {
+    padding: 24px;
+  }
+}

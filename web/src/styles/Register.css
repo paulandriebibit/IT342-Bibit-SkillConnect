@@ -1,0 +1,424 @@
+/* src/styles/Register.css - Matching Green Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.RegisterContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+  padding: 20px;
+}
+
+.RegisterGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin: auto;
+}
+
+/* Brand Section - Left Side */
+.RegisterBrand {
+  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 50%, #2DD4BF 100%);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.BrandLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.BrandLogoIcon {
+  font-size: 32px;
+}
+
+.BrandLogoText {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.BrandTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.BrandDescription {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.FeatureList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.FeatureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 14px;
+}
+
+.FeatureCheck {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Form Section - Right Side */
+.RegisterFormSection {
+  padding: 48px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.RegisterFormContainer {
+  width: 100%;
+  max-width: 420px;
+}
+
+.RegisterHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.RegisterTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.RegisterSubtitle {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* Form Elements */
+.RegisterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.FormRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.InputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.InputLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.InputIcon {
+  font-size: 14px;
+}
+
+.InputField {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #E2E8F0;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+.InputField:focus {
+  border-color: #14B8A6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.SelectField {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #E2E8F0;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+  background-color: white;
+  cursor: pointer;
+}
+
+.SelectField:focus {
+  border-color: #14B8A6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.HelperText {
+  font-size: 11px;
+  color: #94A3B8;
+  margin-top: 2px;
+}
+
+.ErrorMessage {
+  padding: 10px;
+  background-color: #FEF2F2;
+  color: #EF4444;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.SuccessMessage {
+  padding: 10px;
+  background-color: #D1FAE5;
+  color: #10B981;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.RegisterButton {
+  width: 100%;
+  background-color: #0F766E;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.RegisterButton:hover:not(:disabled) {
+  background-color: #0D5C54;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.RegisterButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.Spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.LoginPrompt {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.LoginText {
+  font-size: 13px;
+  color: #64748B;
+}
+
+.LoginLink {
+  background: none;
+  border: none;
+  color: #0F766E;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.LoginLink:hover {
+  text-decoration: underline;
+}
+
+/* Terms Section */
+.TermsSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.TermsCheckbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #0F766E;
+}
+
+.TermsLabel {
+  font-size: 12px;
+  color: #64748B;
+}
+
+.TermsLink {
+  color: #0F766E;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.TermsLink:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar */
+.RegisterFormSection::-webkit-scrollbar {
+  width: 6px;
+}
+
+.RegisterFormSection::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 10px;
+}
+
+.RegisterFormSection::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 10px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .RegisterGrid {
+    max-width: 900px;
+  }
+  
+  .RegisterBrand {
+    padding: 40px 30px;
+  }
+  
+  .BrandTitle {
+    font-size: 30px;
+  }
+  
+  .RegisterFormSection {
+    padding: 40px 30px;
+  }
+  
+  .RegisterFormContainer {
+    max-width: 360px;
+  }
+  
+  .RegisterTitle {
+    font-size: 28px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .RegisterContainer {
+    padding: 0;
+  }
+  
+  .RegisterGrid {
+    grid-template-columns: 1fr;
+    border-radius: 0;
+    max-width: 100%;
+    min-height: 100vh;
+  }
+  
+  .RegisterBrand {
+    display: none;
+  }
+  
+  .RegisterFormSection {
+    padding: 40px 24px;
+    min-height: 100vh;
+    max-height: none;
+  }
+  
+  .RegisterFormContainer {
+    max-width: 100%;
+  }
+  
+  .FormRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .RegisterFormSection {
+    padding: 30px 20px;
+  }
+  
+  .RegisterTitle {
+    font-size: 26px;
+  }
+  
+  .InputField,
+  .SelectField {
+    padding: 10px 12px;
+  }
+  
+  .RegisterButton {
+    padding: 12px;
+  }
+}
+
+/* Landscape Mode */
+@media (max-width: 768px) and (orientation: landscape) {
+  .RegisterFormSection {
+    padding: 30px 24px;
+  }
+  
+  .RegisterHeader {
+    margin-bottom: 20px;
+  }
+  
+  .RegisterTitle {
+    font-size: 24px;
+  }
+}

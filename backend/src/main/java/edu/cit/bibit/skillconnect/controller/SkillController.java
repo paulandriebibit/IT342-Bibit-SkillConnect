@@ -1,12 +1,18 @@
 package edu.cit.bibit.skillconnect.controller;
 
-import edu.cit.bibit.skillconnect.model.Skill;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import edu.cit.bibit.skillconnect.repository.SkillRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import edu.cit.bibit.skillconnect.model.Skill;
+import edu.cit.bibit.skillconnect.repository.SkillRepository;
 
 @RestController
 @RequestMapping("/api/v1/skills")
@@ -32,7 +38,7 @@ public class SkillController {
             Skill savedSkill = skillRepository.save(skill);
             return ResponseEntity.status(201).body(savedSkill);
         } catch (Exception e) {
-            e.printStackTrace(); // This prints the EXACT error in IntelliJ
+            System.err.println("Error creating skill: " + e.getMessage());
             return ResponseEntity.status(500).body("Error: " + e.getMessage());
         }
     }

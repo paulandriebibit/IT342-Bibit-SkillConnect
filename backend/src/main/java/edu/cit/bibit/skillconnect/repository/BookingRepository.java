@@ -7,10 +7,9 @@ import java.util.List;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-
-    // Find swaps where the student is the one requesting
     List<Booking> findByRequesterId(Long requesterId);
-
-    // Find swaps where the student is the one providing (to accept/reject)
     List<Booking> findByProviderId(Long providerId);
+    
+    // Add this method
+    List<Booking> findByRequesterIdOrProviderId(Long requesterId, Long providerId);
 }

@@ -1,0 +1,351 @@
+/* src/styles/SkillCatalog.css - Modern Dashboard Design */
+.SkillCatalogContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.CatalogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.CatalogTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+
+.CatalogSubtitle {
+  font-size: 14px;
+  color: #64748B;
+}
+
+.StatsBadge {
+  background: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.StatsNumber {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0F766E;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.StatsLabel {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Search and Filter Bar */
+.FilterBar {
+  margin-bottom: 28px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.SearchContainer {
+  flex: 1;
+  position: relative;
+  min-width: 280px;
+}
+
+.SearchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #94A3B8;
+}
+
+.SearchInput {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+  background: #F8FAFC;
+}
+
+.SearchInput:focus {
+  border-color: #0F766E;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.CategoryFilters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.CategoryBtn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  color: #475569;
+}
+
+.CategoryBtn:hover {
+  border-color: #0F766E;
+  color: #0F766E;
+  background: #F0FDF4;
+}
+
+.CategoryBtn.Active {
+  background: #0F766E;
+  color: white;
+  border-color: #0F766E;
+}
+
+/* Skills Grid */
+.SkillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+/* Skill Card */
+.SkillCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+}
+
+.SkillCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+  border-color: #CBD5E1;
+}
+
+.CardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.CategoryTag {
+  background: #F0FDF4;
+  color: #0F766E;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.OwnSkillBadge {
+  background: #F1F5F9;
+  color: #64748B;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.SkillTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.SkillDescription {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.CardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #F1F5F9;
+  margin-top: auto;
+}
+
+.ProviderInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ProviderAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0F766E, #14B8A6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ProviderName {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.RequestBtn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.RequestBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.RequestBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Empty State */
+.EmptyState {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+}
+
+.EmptyIcon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.EmptyTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.EmptyText {
+  color: #64748B;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.EmptyBtn {
+  background: #0F766E;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.EmptyBtn:hover {
+  background: #0D5C54;
+  transform: translateY(-1px);
+}
+
+/* Skeleton Loading */
+.SkeletonCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  animation: pulse 1.5s ease-in-out infinite;
+  border: 1px solid #E2E8F0;
+}
+
+.SkeletonLine {
+  height: 16px;
+  background: #F1F5F9;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .SkillCatalogContainer {
+    padding: 0;
+  }
+  
+  .CatalogTitle {
+    font-size: 24px;
+  }
+  
+  .SkillsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .FilterBar {
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  .SearchContainer {
+    min-width: 100%;
+  }
+  
+  .CategoryFilters {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    flex-wrap: nowrap;
+  }
+  
+  .CategoryBtn {
+    white-space: nowrap;
+  }
+}

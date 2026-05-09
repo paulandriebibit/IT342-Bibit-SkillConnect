@@ -1,112 +1,191 @@
+// src/features/catalog/SkillCatalog.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../../styles/SkillCatalog.css';  // ← Fixed: goes up 2 levels to src, then into styles
+
+
 
 const SkillCatalog = () => {
-    const [skills, setSkills] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); // Fixed: named properly
+  const [skills, setSkills] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
-    // Get real user data from localStorage
-    const loggedInUser = JSON.parse(localStorage.getItem('user'));
-    const currentUserId = loggedInUser ? loggedInUser.id : null;
+  // FIX: Better user data retrieval
+  const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
+    const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
+  const currentUserId = loggedInUser?.id;  // Make sure this is getting the ID
+  
+  // Debug: Log to console to verify
+  console.log('Logged in user:', loggedInUser);
+  console.log('Current user ID:', currentUserId);
 
-    useEffect(() => {
-        axios.get('http://localhost:8080/api/v1/skills')
-            .then(res => {
-                setSkills(res.data);
-                setIsLoading(false); // Fixed: matches state
-            })
-            .catch(err => {
-                console.error(err);
-                setIsLoading(false);
-            });
-    }, []);
 
-    const handleRequestSwap = async (skill) => {
-        if (!currentUserId) {
-            alert("Please login first!");
-            return;
-        }
+  useEffect(() => {
+    fetchSkills();
+  }, []);
 
-        if (skill.providerId === currentUserId) {
-            alert("You cannot request a swap for your own skill!");
-            return;
-        }
+  const fetchSkills = async () => {
+    try {
+      const res = await axios.get('http://localhost:8080/api/v1/skills');
+      setSkills(res.data);
+    } catch (err) {
+      console.error('Error fetching skills:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        try {
-            const bookingRequest = {
-                skillId: skill.id,
-                skillTitle: skill.title,
-                providerId: skill.providerId,
-                providerName: skill.providerName || 'Student',
-                requesterId: currentUserId,
-                requesterName: loggedInUser.name || "Peer"
-            };
+ const handleRequestSwap = async (skill) => {
+  if (!currentUserId) {
+    alert("Please login first!");
+    console.log('No user ID found. User data:', loggedInUser);
+    return;
+  }
 
-            await axios.post('http://localhost:8080/api/v1/bookings', bookingRequest);
-            alert(`Request for "${skill.title}" sent successfully!`);
-        } catch (err) {
-            alert("Failed to send request.");
-        }
+  if (skill.providerId === currentUserId) {
+    alert("You cannot request a swap for your own skill!");
+    return;
+  }
+
+  try {
+    const bookingRequest = {
+      skillId: skill.id,
+      skillTitle: skill.title,
+      providerId: skill.providerId,
+      providerName: skill.providerName || 'Student',
+      requesterId: currentUserId,
+      requesterName: `${loggedInUser?.firstname || ''} ${loggedInUser?.lastname || ''}`.trim() || 'Student',
+      status: "PENDING"
     };
 
-    if (isLoading) return <div style={{ textAlign: 'center', padding: '50px', color: '#64748B' }}>Loading skills...</div>;
+    console.log('Sending booking request:', bookingRequest);
+    console.log('Requester ID being sent:', currentUserId);
+    console.log('Provider ID:', skill.providerId);
 
-    return (
-        <div>
-            <div style={{ marginBottom: '32px' }}>
-                <h2 style={{ color: '#0F172A', fontSize: '28px', fontWeight: '800', margin: '0 0 8px 0' }}>Peer Skill Exchange</h2>
-                <p style={{ color: '#64748B', fontSize: '16px', margin: 0 }}>Discover and swap skills with your fellow CIT-U students.</p>
-            </div>
-
-            <div style={gridStyle}>
-                {skills.map(skill => {
-                    // Logic: Compare skill owner to logged-in user
-                    const isOwnSkill = skill.providerId === currentUserId;
-
-                    return (
-                        <div key={skill.id} style={cardStyle}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                                <span style={categoryTagStyle}>{skill.category || 'General'}</span>
-                                <div style={{ color: '#94A3B8', cursor: 'pointer' }}>•••</div>
-                            </div>
-
-                            <h3 style={skillTitleStyle}>{skill.title}</h3>
-                            <p style={descriptionStyle}>{skill.description}</p>
-
-                            <div style={footerStyle}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <div style={avatarCircle}>{skill.providerName ? skill.providerName.charAt(0) : 'U'}</div>
-                                    <span style={{ fontSize: '13px', color: '#475569', fontWeight: '500' }}>{skill.providerName || 'Student'}</span>
-                                </div>
-
-                                <button
-                                    style={{
-                                        ...requestBtnStyle,
-                                        backgroundColor: isOwnSkill ? '#CBD5E1' : '#2563EB',
-                                        cursor: isOwnSkill ? 'not-allowed' : 'pointer'
-                                    }}
-                                    onClick={() => handleRequestSwap(skill)}
-                                    disabled={isOwnSkill}
-                                >
-                                    {isOwnSkill ? 'Your Skill' : 'Request Swap'}
-                                </button>
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
-    );
+    const response = await axios.post('http://localhost:8080/api/v1/bookings', bookingRequest);
+    console.log('Booking response:', response.data);
+    
+    alert(`Request for "${skill.title}" sent successfully!`);
+  } catch (err) {
+    console.error('Error details:', err.response?.data || err.message);
+    alert("Failed to send request. Please try again.");
+  }
 };
 
-// --- Styles (Unaltered) ---
-const gridStyle = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' };
-const cardStyle = { backgroundColor: '#FFFFFF', padding: '24px', borderRadius: '16px', border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column' };
-const categoryTagStyle = { backgroundColor: '#EFF6FF', color: '#2563EB', padding: '6px 12px', borderRadius: '99px', fontSize: '12px', fontWeight: '700' };
-const skillTitleStyle = { color: '#1E293B', fontSize: '18px', fontWeight: '700', margin: '16px 0 8px 0' };
-const descriptionStyle = { color: '#64748B', fontSize: '14px', lineHeight: '1.6', margin: '0 0 24px 0', flex: 1 };
-const footerStyle = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid #F1F5F9' };
-const avatarCircle = { width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#CBD5E1', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' };
-const requestBtnStyle = { color: 'white', border: 'none', padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '600' };
+  const categories = ['all', 'Programming', 'Design', 'Academic', 'Language', 'Other'];
+  
+  const filteredSkills = skills.filter(skill => {
+    const matchesSearch = skill.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          skill.description?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || skill.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  if (loading) {
+    return (
+      <div className="SkillCatalogContainer">
+        <div className="SkillsGrid">
+          {[1, 2, 3, 4, 5, 6].map(i => (
+            <div key={i} className="SkeletonCard">
+              <div className="SkeletonLine" style={{ width: '60%' }}></div>
+              <div className="SkeletonLine" style={{ width: '80%' }}></div>
+              <div className="SkeletonLine" style={{ width: '40%' }}></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="SkillCatalogContainer">
+      <div className="CatalogHeader">
+        <div>
+          <h1 className="CatalogTitle">Skill Marketplace</h1>
+          <p className="CatalogSubtitle">Discover and swap skills with fellow CIT-U students</p>
+        </div>
+        <div className="StatsBadge">
+          <span className="StatsNumber">{skills.length}</span>
+          <span className="StatsLabel">Skills Available</span>
+        </div>
+      </div>
+
+      <div className="FilterBar">
+        <div className="SearchContainer">
+          <span className="SearchIcon">🔍</span>
+          <input
+            type="text"
+            className="SearchInput"
+            placeholder="Search skills..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <div className="CategoryFilters">
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={`CategoryBtn ${selectedCategory === cat ? 'Active' : ''}`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {filteredSkills.length === 0 ? (
+        <div className="EmptyState">
+          <span className="EmptyIcon">🌿</span>
+          <h3 className="EmptyTitle">No skills found</h3>
+          <p className="EmptyText">Try adjusting your search or be the first to offer a skill!</p>
+          <button className="EmptyBtn">Offer a Skill</button>
+        </div>
+      ) : (
+        <div className="SkillsGrid">
+          {filteredSkills.map(skill => {
+            const isOwnSkill = skill.providerId === currentUserId;
+            return (
+              <div key={skill.id} className="SkillCard">
+                <div className="CardHeader">
+                  <span className="CategoryTag">{skill.category || 'General'}</span>
+                  {isOwnSkill && <span className="OwnSkillBadge">Your Skill</span>}
+                </div>
+                
+                <h3 className="SkillTitle">{skill.title}</h3>
+                <p className="SkillDescription">
+                  {skill.description || 'No description provided'}
+                </p>
+                
+                <div className="CardFooter">
+                  <div className="ProviderInfo">
+                    <div className="ProviderAvatar">
+                      {skill.providerName ? skill.providerName.charAt(0).toUpperCase() : 'U'}
+                    </div>
+                    <span className="ProviderName">{skill.providerName || 'Student'}</span>
+                  </div>
+                  
+                  <button
+                    className="RequestBtn"
+                    style={{
+                      backgroundColor: isOwnSkill ? '#CBD5E1' : '#0F766E',
+                      color: isOwnSkill ? '#64748B' : 'white',
+                      cursor: isOwnSkill ? 'not-allowed' : 'pointer'
+                    }}
+                    onClick={() => handleRequestSwap(skill)}
+                    disabled={isOwnSkill}
+                  >
+                    {isOwnSkill ? 'Your Skill' : 'Request Swap →'}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default SkillCatalog;

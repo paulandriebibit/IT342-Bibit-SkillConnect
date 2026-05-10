@@ -1,4 +1,4 @@
-/* src/styles/Settings.css - Modern Dashboard Design */
+/* src/styles/Settings.css - Dashboard Design */
 .settings-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -28,8 +28,7 @@
   background: white;
   padding: 8px;
   border-radius: 12px;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .tab-button {
@@ -45,13 +44,13 @@
 }
 
 .tab-button:hover {
-  color: #0F766E;
+  color: #238B7A;
   background: #F8FAFC;
 }
 
 .tab-button.active {
-  color: #0F766E;
-  background: #F0FDF4;
+  color: white;
+  background: #238B7A;
 }
 
 /* Tab Content */
@@ -75,8 +74,7 @@
   background: white;
   border-radius: 16px;
   padding: 32px;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .section-title {
@@ -113,9 +111,9 @@
 }
 
 .form-input:focus {
-  border-color: #0F766E;
+  border-color: #238B7A;
   background: white;
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 .form-input:disabled {
@@ -151,13 +149,13 @@
 }
 
 .form-select:focus {
-  border-color: #0F766E;
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  border-color: #238B7A;
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 /* Buttons */
 .btn-save {
-  background: #0F766E;
+  background: #238B7A;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -171,9 +169,9 @@
 }
 
 .btn-save:hover:not(:disabled) {
-  background: #0D5C54;
+  background: #1A6B64;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 4px 12px rgba(35, 139, 122, 0.3);
 }
 
 .btn-save:disabled {
@@ -222,7 +220,7 @@
 .avatar-preview {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #0F766E, #14B8A6);
+  background: linear-gradient(135deg, #238B7A, #2FA89D);
   border-radius: 16px;
   display: flex;
   align-items: center;

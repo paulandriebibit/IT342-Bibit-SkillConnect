@@ -1,4 +1,4 @@
-/* src/styles/Sidebar.css - Modern Dashboard Design */
+/* src/styles/Sidebar.css - Dashboard Design */
 * {
   margin: 0;
   padding: 0;
@@ -8,129 +8,147 @@
 .app-container {
   display: flex;
   min-height: 100vh;
-  background: #F5F7FA;
+  background: #E8F4F0;
 }
 
 /* ===== SIDEBAR STYLES ===== */
 .sidebar {
-  width: 260px;
-  background: #FFFFFF;
-  color: #2D3748;
+  width: 200px;
+  background: linear-gradient(180deg, #2A8C7C 0%, #238B7A 100%);
+  color: white;
   display: flex;
   flex-direction: column;
   position: fixed;
   height: 100vh;
   left: 0;
   top: 0;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
   z-index: 100;
   transition: all 0.3s ease;
-  border-right: 1px solid #E2E8F0;
+  border-radius: 0 40px 40px 0;
+  padding-bottom: 20px;
 }
 
 /* Sidebar Logo */
 .sidebar-logo {
-  padding: 24px 20px;
-  border-bottom: 1px solid #F1F5F9;
-  margin-bottom: 16px;
+  padding: 32px 20px 28px;
+  margin-bottom: 40px;
 }
 
 .logo-icon {
-  font-size: 28px;
-  margin-right: 10px;
+  font-size: 24px;
+  margin-right: 8px;
   display: inline-block;
 }
 
 .logo-text {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  color: #0F766E;
+  color: white;
   letter-spacing: -0.3px;
 }
 
 /* User Profile Section */
 .user-profile {
-  padding: 16px 20px 20px 20px;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #F1F5F9;
+  padding: 0 16px;
+  margin-bottom: 24px;
+  display: none;
 }
 
 .user-avatar {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, #0F766E, #14B8A6);
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 12px;
   color: white;
 }
 
 .user-name {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  color: #1E293B;
+  color: white;
   margin-bottom: 4px;
 }
 
 .user-email {
-  font-size: 12px;
-  color: #64748B;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Navigation Menu */
 .nav-menu {
   flex: 1;
-  padding: 8px 12px;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  margin-bottom: 4px;
+  gap: 16px;
+  padding: 16px 18px;
+  margin-bottom: 8px;
   border-radius: 10px;
-  color: #64748B;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
+  position: relative;
 }
 
 .nav-item:hover {
-  background: #F8FAFC;
-  color: #0F766E;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .nav-item.active {
-  background: #F0FDF4;
-  color: #0F766E;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
   font-weight: 600;
 }
 
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 4px;
+  height: 24px;
+  background: white;
+  border-radius: 2px;
+}
+
 .nav-icon {
-  font-size: 18px;
+  font-size: 20px;
   width: 24px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-label {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 /* Logout Button */
 .logout-btn {
-  margin: 16px 12px 24px;
+  margin: auto 12px 0;
   padding: 12px 16px;
-  background: #FEF2F2;
-  border: none;
-  border-radius: 10px;
-  color: #DC2626;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  color: white;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 14px;
@@ -139,29 +157,32 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: calc(100% - 24px);
 }
 
 .logout-btn:hover {
-  background: #FEE2E2;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
 }
+
 
 /* ===== MAIN CONTENT AREA ===== */
 .main-content {
   flex: 1;
-  margin-left: 260px;
-  padding: 32px;
+  margin-left: 200px;
+  padding: 32px 40px;
   min-height: 100vh;
-  background: #F5F7FA;
+  background: #E8F4F0;
 }
 
 /* Welcome Header */
 .welcome-header {
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 28px 32px;
   margin-bottom: 32px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: none;
 }
 
 .welcome-title {
@@ -188,18 +209,18 @@
   background: white;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  border: 1px solid #E2E8F0;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: none;
+  transition: all 0.3s ease;
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .stat-icon {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 12px;
   display: block;
 }
@@ -207,7 +228,7 @@
 .stat-value {
   font-size: 32px;
   font-weight: 700;
-  color: #0F766E;
+  color: #238B7A;
   margin-bottom: 4px;
   display: block;
 }
@@ -221,10 +242,10 @@
 /* Content Card */
 .content-card {
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 32px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: none;
 }
 
 /* ===== RESPONSIVE SIDEBAR ===== */
@@ -234,14 +255,14 @@
   top: 20px;
   left: 20px;
   z-index: 201;
-  background: #0F766E;
+  background: #238B7A;
   border: none;
   color: white;
   font-size: 20px;
   padding: 12px 16px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .overlay {
@@ -263,6 +284,7 @@
   
   .sidebar {
     transform: translateX(-100%);
+    border-radius: 0;
   }
   
   .sidebar.open {
@@ -327,7 +349,7 @@
 
 .logout-modal {
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 32px;
   width: 90%;
   max-width: 400px;
@@ -375,12 +397,12 @@
 }
 
 .modal-btn.confirm {
-  background: #DC2626;
+  background: #238B7A;
   color: white;
 }
 
 .modal-btn.confirm:hover {
-  background: #B91C1C;
+  background: #1A6B64;
 }
 
 @keyframes fadeIn {

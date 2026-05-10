@@ -1,4 +1,4 @@
-/* src/styles/Register.css - Matching Green Theme */
+/* src/styles/Register.css - Dashboard Design */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+  background: linear-gradient(135deg, #238B7A 0%, #2FA89D 100%);
   padding: 20px;
 }
 
@@ -29,7 +29,7 @@
 
 /* Brand Section - Left Side */
 .RegisterBrand {
-  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 50%, #2DD4BF 100%);
+  background: linear-gradient(135deg, #238B7A 0%, #2FA89D 50%, #4FC7B8 100%);
   padding: 48px 40px;
   display: flex;
   flex-direction: column;
@@ -172,8 +172,8 @@
 }
 
 .InputField:focus {
-  border-color: #14B8A6;
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+  border-color: #238B7A;
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 .SelectField {
@@ -189,8 +189,8 @@
 }
 
 .SelectField:focus {
-  border-color: #14B8A6;
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+  border-color: #238B7A;
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 .HelperText {
@@ -219,7 +219,7 @@
 
 .RegisterButton {
   width: 100%;
-  background-color: #0F766E;
+  background-color: #238B7A;
   color: white;
   border: none;
   padding: 14px;
@@ -233,7 +233,7 @@
 }
 
 .RegisterButton:hover:not(:disabled) {
-  background-color: #0D5C54;
+  background-color: #1A6B64;
   transform: translateY(-1px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -271,7 +271,7 @@
 .LoginLink {
   background: none;
   border: none;
-  color: #0F766E;
+  color: #238B7A;
   font-weight: 600;
   cursor: pointer;
   font-size: 13px;
@@ -293,7 +293,7 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: #0F766E;
+  accent-color: #238B7A;
 }
 
 .TermsLabel {
@@ -302,7 +302,7 @@
 }
 
 .TermsLink {
-  color: #0F766E;
+  color: #238B7A;
   text-decoration: none;
   font-weight: 500;
 }
@@ -311,24 +311,7 @@
   text-decoration: underline;
 }
 
-/* Scrollbar */
-.RegisterFormSection::-webkit-scrollbar {
-  width: 6px;
-}
-
-.RegisterFormSection::-webkit-scrollbar-track {
-  background: #F1F5F9;
-  border-radius: 10px;
-}
-
-.RegisterFormSection::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 10px;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Tablet */
+/* Responsive */
 @media (max-width: 1024px) {
   .RegisterGrid {
     max-width: 900px;
@@ -355,7 +338,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .RegisterContainer {
     padding: 0;
@@ -388,7 +370,6 @@
   }
 }
 
-/* Small Mobile */
 @media (max-width: 480px) {
   .RegisterFormSection {
     padding: 30px 20px;
@@ -405,20 +386,5 @@
   
   .RegisterButton {
     padding: 12px;
-  }
-}
-
-/* Landscape Mode */
-@media (max-width: 768px) and (orientation: landscape) {
-  .RegisterFormSection {
-    padding: 30px 24px;
-  }
-  
-  .RegisterHeader {
-    margin-bottom: 20px;
-  }
-  
-  .RegisterTitle {
-    font-size: 24px;
   }
 }

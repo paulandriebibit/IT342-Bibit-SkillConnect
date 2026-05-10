@@ -116,22 +116,22 @@ const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
 
       <div className="StatsGrid">
         <div className="StatCard">
-          <div className="StatCardIcon">📋</div>
+          <div className="StatCardIcon"></div>
           <div className="StatCardValue">{stats.total}</div>
           <div className="StatCardLabel">My Exchanges</div>
         </div>
         <div className="StatCard">
-          <div className="StatCardIcon">⏳</div>
+          <div className="StatCardIcon"></div>
           <div className="StatCardValue">{stats.pending}</div>
           <div className="StatCardLabel">Pending</div>
         </div>
         <div className="StatCard">
-          <div className="StatCardIcon">✅</div>
+          <div className="StatCardIcon"></div>
           <div className="StatCardValue">{stats.confirmed}</div>
           <div className="StatCardLabel">Confirmed</div>
         </div>
         <div className="StatCard">
-          <div className="StatCardIcon">🎉</div>
+          <div className="StatCardIcon"></div>
           <div className="StatCardValue">{stats.completed}</div>
           <div className="StatCardLabel">Completed</div>
         </div>
@@ -161,7 +161,7 @@ const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
       <div className="BookingsCard">
         {filteredBookings.length === 0 ? (
           <div className="EmptyBookings">
-            <div className="EmptyIcon">📭</div>
+            <div className="EmptyIcon"></div>
             <h3 className="EmptyTitle">No bookings yet</h3>
             <p className="EmptyText">Visit the Marketplace to start a skill swap!</p>
             <p style={{ fontSize: '12px', color: '#94A3B8', marginTop: '10px' }}>

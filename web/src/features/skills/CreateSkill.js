@@ -76,7 +76,7 @@ const CreateSkill = () => {
         <form onSubmit={handleSubmit} className="SkillForm">
           <div className="FormGroup">
             <label className="FormLabel">
-              <span className="FormLabelIcon">🏷️</span>
+              <span className="FormLabelIcon"></span>
               Skill Title *
             </label>
             <input
@@ -92,7 +92,7 @@ const CreateSkill = () => {
 
           <div className="FormGroup">
             <label className="FormLabel">
-              <span className="FormLabelIcon">📂</span>
+              <span className="FormLabelIcon"></span>
               Category *
             </label>
             <select
@@ -102,17 +102,17 @@ const CreateSkill = () => {
               onChange={handleChange}
               required
             >
-              <option value="Programming">💻 Programming</option>
-              <option value="Design">🎨 Design</option>
-              <option value="Academic">📚 Academic</option>
-              <option value="Language">🗣️ Language</option>
-              <option value="Other">✨ Other</option>
+              <option value="Programming"> Programming</option>
+              <option value="Design"> Design</option>
+              <option value="Academic"> Academic</option>
+              <option value="Language"> Language</option>
+              <option value="Other"> Other</option>
             </select>
           </div>
 
           <div className="FormGroup">
             <label className="FormLabel">
-              <span className="FormLabelIcon">📝</span>
+              <span className="FormLabelIcon"></span>
               Description *
             </label>
             <textarea
@@ -131,7 +131,7 @@ const CreateSkill = () => {
             className="SubmitButton"
             disabled={loading}
           >
-            {loading ? <span className="Spinner"></span> : '📢 Post to Marketplace'}
+            {loading ? <span className="Spinner"></span> : 'Post to Marketplace'}
           </button>
         </form>
 

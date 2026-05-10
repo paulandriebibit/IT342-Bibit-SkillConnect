@@ -1,11 +1,11 @@
-/* src/styles/Theme.css - Modern Dashboard Design System */
+/* src/styles/Theme.css - Dashboard Design System */
 :root {
   /* Primary Colors */
   --primary-50: #F0FDF4;
   --primary-100: #DCFCE7;
   --primary-500: #14B8A6;
-  --primary-600: #0F766E;
-  --primary-700: #0D5C54;
+  --primary-600: #238B7A;
+  --primary-700: #1A6B64;
   
   /* Neutral Colors */
   --gray-50: #F8FAFC;
@@ -30,7 +30,7 @@
   --info-light: #DBEAFE;
   
   /* Background */
-  --bg-page: #F5F7FA;
+  --bg-page: #E8F4F0;
   --bg-card: #FFFFFF;
   --bg-input: #F8FAFC;
   
@@ -40,9 +40,9 @@
   
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 24px -4px rgba(0, 0, 0, 0.15);
   
   /* Border Radius */
   --radius-sm: 8px;
@@ -117,7 +117,7 @@ body {
 
 /* Focus Styles */
 :focus-visible {
-  outline: 2px solid var(--primary-500);
+  outline: 2px solid var(--primary-600);
   outline-offset: 2px;
 }
 

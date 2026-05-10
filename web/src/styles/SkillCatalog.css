@@ -1,4 +1,4 @@
-/* src/styles/SkillCatalog.css - Modern Dashboard Design */
+/* src/styles/SkillCatalog.css - Dashboard Design */
 .SkillCatalogContainer {
   max-width: 1400px;
   margin: 0 auto;
@@ -29,15 +29,14 @@
 .StatsBadge {
   background: white;
   padding: 16px 24px;
-  border-radius: 12px;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .StatsNumber {
   font-size: 28px;
   font-weight: 700;
-  color: #0F766E;
+  color: #238B7A;
   display: block;
   line-height: 1;
   margin-bottom: 4px;
@@ -57,9 +56,8 @@
   flex-wrap: wrap;
   background: white;
   padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .SearchContainer {
@@ -89,9 +87,9 @@
 }
 
 .SearchInput:focus {
-  border-color: #0F766E;
+  border-color: #238B7A;
   background: white;
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 .CategoryFilters {
@@ -113,15 +111,15 @@
 }
 
 .CategoryBtn:hover {
-  border-color: #0F766E;
-  color: #0F766E;
+  border-color: #238B7A;
+  color: #238B7A;
   background: #F0FDF4;
 }
 
 .CategoryBtn.Active {
-  background: #0F766E;
+  background: #238B7A;
   color: white;
-  border-color: #0F766E;
+  border-color: #238B7A;
 }
 
 /* Skills Grid */
@@ -136,17 +134,16 @@
   background: white;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s;
-  border: 1px solid #E2E8F0;
+  border: none;
   display: flex;
   flex-direction: column;
 }
 
 .SkillCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
-  border-color: #CBD5E1;
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.15);
 }
 
 .CardHeader {
@@ -158,7 +155,7 @@
 
 .CategoryTag {
   background: #F0FDF4;
-  color: #0F766E;
+  color: #238B7A;
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 11px;
@@ -213,7 +210,7 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #0F766E, #14B8A6);
+  background: linear-gradient(135deg, #238B7A, #2FA89D);
   color: white;
   display: flex;
   align-items: center;
@@ -236,16 +233,21 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  background: #238B7A;
+  color: white;
 }
 
 .RequestBtn:hover:not(:disabled) {
+  background: #1A6B64;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 8px rgba(35, 139, 122, 0.2);
 }
 
 .RequestBtn:disabled {
   cursor: not-allowed;
   opacity: 0.6;
+  background: #CBD5E1;
+  color: #64748B;
 }
 
 /* Empty State */
@@ -254,7 +256,7 @@
   padding: 80px 20px;
   background: white;
   border-radius: 16px;
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .EmptyIcon {
@@ -278,7 +280,7 @@
 }
 
 .EmptyBtn {
-  background: #0F766E;
+  background: #238B7A;
   color: white;
   border: none;
   padding: 12px 28px;
@@ -290,7 +292,7 @@
 }
 
 .EmptyBtn:hover {
-  background: #0D5C54;
+  background: #1A6B64;
   transform: translateY(-1px);
 }
 
@@ -300,7 +302,7 @@
   border-radius: 16px;
   padding: 24px;
   animation: pulse 1.5s ease-in-out infinite;
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .SkeletonLine {

@@ -1,4 +1,4 @@
-/* src/styles/CreateSkill.css - Modern Dashboard Design */
+/* src/styles/CreateSkill.css - Dashboard Design */
 .CreateSkillContainer {
   max-width: 900px;
   margin: 0 auto;
@@ -26,8 +26,7 @@
   background: white;
   border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .SkillForm {
@@ -67,9 +66,9 @@
 }
 
 .FormInput:focus {
-  border-color: #0F766E;
+  border-color: #238B7A;
   background: white;
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 .FormSelect {
@@ -84,8 +83,8 @@
 }
 
 .FormSelect:focus {
-  border-color: #0F766E;
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  border-color: #238B7A;
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 .FormTextarea {
@@ -102,9 +101,9 @@
 }
 
 .FormTextarea:focus {
-  border-color: #0F766E;
+  border-color: #238B7A;
   background: white;
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  box-shadow: 0 0 0 3px rgba(35, 139, 122, 0.1);
 }
 
 .HelperText {
@@ -140,7 +139,7 @@
 }
 
 .SubmitButton {
-  background: #0F766E;
+  background: #238B7A;
   color: white;
   border: none;
   padding: 14px 24px;
@@ -153,9 +152,9 @@
 }
 
 .SubmitButton:hover:not(:disabled) {
-  background: #0D5C54;
+  background: #1A6B64;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 4px 12px rgba(35, 139, 122, 0.3);
 }
 
 .SubmitButton:disabled {
@@ -202,7 +201,7 @@
 .PreviewCategory {
   display: inline-block;
   background: #F0FDF4;
-  color: #0F766E;
+  color: #238B7A;
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 11px;

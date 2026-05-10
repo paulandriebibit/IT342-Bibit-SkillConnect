@@ -1,20 +1,20 @@
-/* src/styles/Layout.css */
+/* src/styles/Layout.css - Dashboard Design */
 .AppContainer {
   min-height: 100vh;
-  background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+  background: #E8F4F0;
 }
 
 /* Navbar */
 .Navbar {
   background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .NavbarContainer {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
@@ -28,7 +28,7 @@
   gap: 10px;
   font-size: 20px;
   font-weight: bold;
-  color: #0F766E;
+  color: #238B7A;
   text-decoration: none;
   cursor: pointer;
 }
@@ -38,7 +38,7 @@
 }
 
 .NavbarLogoText {
-  background: linear-gradient(135deg, #0F766E, #14B8A6);
+  background: linear-gradient(135deg, #238B7A, #2FA89D);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -63,12 +63,12 @@
 }
 
 .NavLink:hover {
-  color: #0F766E;
+  color: #238B7A;
   background: #F0FDF4;
 }
 
 .NavLinkActive {
-  color: #0F766E;
+  color: #238B7A;
   background: #F0FDF4;
 }
 
@@ -88,7 +88,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0F766E, #14B8A6);
+  background: linear-gradient(135deg, #238B7A, #2FA89D);
   color: white;
   display: flex;
   align-items: center;
@@ -121,7 +121,7 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #0F766E;
+  color: #238B7A;
   padding: 8px;
 }
 
@@ -146,7 +146,7 @@
 
 .MobileNavLink:hover {
   background: #F0FDF4;
-  color: #0F766E;
+  color: #238B7A;
 }
 
 .MobileLogoutBtn {
@@ -186,9 +186,9 @@
   }
 }
 
-/* Add to Layout.css */
+/* Hero Section */
 .HeroSection {
-  background: linear-gradient(135deg, #000000 0%, #14B8A6 100%);
+  background: linear-gradient(135deg, #000000 0%, #238B7A 100%);
   color: white;
   padding: 60px 24px;
   text-align: center;
@@ -208,7 +208,7 @@
 }
 
 .MainContent {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 24px;
 }

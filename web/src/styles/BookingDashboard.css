@@ -1,4 +1,4 @@
-/* src/styles/BookingDashboard.css - Modern Dashboard Design */
+/* src/styles/BookingDashboard.css - Dashboard Design */
 .BookingContainer {
   max-width: 1400px;
   margin: 0 auto;
@@ -29,8 +29,7 @@
   background: white;
   padding: 8px;
   border-radius: 12px;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .TabButton {
@@ -46,13 +45,13 @@
 }
 
 .TabButton:hover {
-  color: #0F766E;
+  color: #238B7A;
   background: #F8FAFC;
 }
 
 .TabButton.Active {
-  color: #0F766E;
-  background: #F0FDF4;
+  color: white;
+  background: #238B7A;
 }
 
 /* Stats Cards */
@@ -67,14 +66,13 @@
   background: white;
   border-radius: 16px;
   padding: 24px;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
 }
 
 .StatCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .StatCardIcon {
@@ -86,7 +84,7 @@
 .StatCardValue {
   font-size: 32px;
   font-weight: 700;
-  color: #0F766E;
+  color: #238B7A;
   margin-bottom: 6px;
   display: block;
 }
@@ -101,9 +99,8 @@
 .BookingsCard {
   background: white;
   border-radius: 16px;
-  border: 1px solid #E2E8F0;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .BookingsTable {
@@ -190,12 +187,12 @@
 }
 
 .ActionConfirm {
-  background: #10B981;
+  background: #238B7A;
   color: white;
 }
 
 .ActionConfirm:hover {
-  background: #059669;
+  background: #1A6B64;
   transform: translateY(-1px);
 }
 

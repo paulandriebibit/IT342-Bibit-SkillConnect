@@ -113,7 +113,7 @@ const SkillCatalog = () => {
 
       <div className="FilterBar">
         <div className="SearchContainer">
-          <span className="SearchIcon">🔍</span>
+          <span className="SearchIcon"></span>
           <input
             type="text"
             className="SearchInput"

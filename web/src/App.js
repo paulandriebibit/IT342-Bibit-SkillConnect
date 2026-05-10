@@ -6,8 +6,8 @@ import Sidebar from './components/Sidebar';
 import SkillCatalog from './features/catalog/SkillCatalog';
 import CreateSkill from './features/skills/CreateSkill';
 import BookingDashboard from './features/bookings/BookingDashboard';
-import './styles/Theme.css';
-import './styles/Sidebar.css';
+import './Theme.css';
+import './components/Sidebar.css';
 import Settings from './features/settings/Settings';
 
 function App() {

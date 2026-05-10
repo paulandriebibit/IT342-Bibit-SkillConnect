@@ -1,6 +1,6 @@
 // src/components/Sidebar.js
 import React, { useState } from 'react';
-import '../styles/Sidebar.css';
+import './Sidebar.css';
 
 const Sidebar = ({ currentPage, setCurrentPage, user, onLogout, isOpen, setIsOpen }) => {
   const [showLogoutModal, setShowLogoutModal] = useState(false);

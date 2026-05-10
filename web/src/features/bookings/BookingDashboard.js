@@ -1,7 +1,7 @@
 // src/features/bookings/BookingDashboard.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../../styles/BookingDashboard.css';
+import './BookingDashboard.css';
 
 const BookingDashboard = () => {
   const [bookings, setBookings] = useState([]);
@@ -19,20 +19,17 @@ const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
     fetchBookings();
   }, []);
 
-  const fetchBookings = async () => {
+const fetchBookings = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/api/v1/bookings');
-      console.log('All bookings from backend:', res.data);
-      console.log('Number of bookings:', res.data.length);
+      // 1. Point to the specific user activity endpoint
+      // 2. Use the currentUserId from your session
+      const res = await axios.get(`http://localhost:8080/api/v1/bookings/my-bookings/${currentUserId}`);
       
-      // Log each booking's IDs for debugging
-      res.data.forEach(booking => {
-        console.log(`Booking ${booking.id}: requesterId=${booking.requesterId}, providerId=${booking.providerId}`);
-      });
+      console.log('Filtered user activity:', res.data);
       
       setBookings(res.data);
     } catch (err) {
-      console.error('Error fetching bookings:', err);
+      console.error('Error fetching filtered bookings:', err);
     } finally {
       setLoading(false);
     }

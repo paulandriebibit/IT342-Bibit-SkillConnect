@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../styles/CreateSkill.css'; 
+import './CreateSkill.css'; 
 
 const CreateSkill = () => {
   const [skill, setSkill] = useState({

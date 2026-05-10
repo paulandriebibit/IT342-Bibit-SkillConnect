@@ -1,4 +1,4 @@
-package edu.cit.bibit.skillconnect.controller;
+package edu.cit.bibit.skillconnect.features.bookings;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import edu.cit.bibit.skillconnect.model.Booking;
-import edu.cit.bibit.skillconnect.repository.BookingRepository;
 
 @RestController
 @RequestMapping("/api/v1/bookings")
@@ -42,7 +39,7 @@ public class BookingController {
 
     @GetMapping("/my-bookings/{userId}")
     public ResponseEntity<?> getMyBookings(@PathVariable Long userId) {
-        List<Booking> myBookings = bookingRepository.findByRequesterIdOrProviderId(userId, userId);
-        return ResponseEntity.ok(myBookings);
-    }
+    List<Booking> myBookings = bookingRepository.findByRequesterIdOrProviderId(userId, userId);
+    return ResponseEntity.ok(myBookings);
+}
 }

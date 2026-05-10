@@ -1,5 +1,6 @@
-package edu.cit.bibit.skillconnect
+package edu.cit.bibit.skillconnect.features.common
 
+import edu.cit.bibit.skillconnect.features.auth.UserRequest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST

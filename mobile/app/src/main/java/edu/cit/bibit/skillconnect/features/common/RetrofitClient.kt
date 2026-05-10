@@ -1,5 +1,6 @@
-package edu.cit.bibit.skillconnect
+package edu.cit.bibit.skillconnect.features.common
 
+import edu.cit.bibit.skillconnect.features.common.ApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

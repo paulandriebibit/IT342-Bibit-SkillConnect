@@ -1,4 +1,4 @@
-package edu.cit.bibit.skillconnect
+package edu.cit.bibit.skillconnect.features.auth
 
 data class LoginRequest(
     val email: String,

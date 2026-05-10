@@ -1,8 +1,7 @@
-package edu.cit.bibit.skillconnect.repository;
-
-import edu.cit.bibit.skillconnect.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+package edu.cit.bibit.skillconnect.features.auth;
 import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByEmail(String email);

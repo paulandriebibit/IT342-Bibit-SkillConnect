@@ -1,5 +1,4 @@
-package edu.cit.bibit.skillconnect
-
+package edu.cit.bibit.skillconnect.features.auth
 
 data class UserRequest(
     val firstname: String,

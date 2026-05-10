@@ -1,8 +1,7 @@
 // src/features/auth/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../styles/Theme.css';
-import '../../styles/Login.css';
+import './Login.css';
 
 const Login = ({ onLoginSuccess, onSwitchToRegister }) => {
   const [creds, setCreds] = useState({ email: '', password: '' });

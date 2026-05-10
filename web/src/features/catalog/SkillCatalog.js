@@ -1,7 +1,7 @@
 // src/features/catalog/SkillCatalog.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../../styles/SkillCatalog.css';  // ← Fixed: goes up 2 levels to src, then into styles
+import './SkillCatalog.css';
 
 
 

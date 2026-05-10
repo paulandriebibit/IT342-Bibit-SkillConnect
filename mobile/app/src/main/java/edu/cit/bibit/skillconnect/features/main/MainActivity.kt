@@ -1,4 +1,4 @@
-package edu.cit.bibit.skillconnect
+package edu.cit.bibit.skillconnect.features.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import edu.cit.bibit.skillconnect.R
+import edu.cit.bibit.skillconnect.features.auth.RegisterActivity
+import edu.cit.bibit.skillconnect.features.common.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

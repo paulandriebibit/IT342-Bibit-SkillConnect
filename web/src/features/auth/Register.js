@@ -1,8 +1,7 @@
 // src/features/auth/Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../styles/Theme.css';
-import '../../styles/Register.css';
+import './Register.css';
 
 const Register = ({ onSwitchToLogin }) => {
   const [user, setUser] = useState({

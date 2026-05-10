@@ -1,7 +1,7 @@
 // src/features/settings/Settings.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../styles/Settings.css';
+import './Settings.css';
 
 const Settings = () => {
   const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');

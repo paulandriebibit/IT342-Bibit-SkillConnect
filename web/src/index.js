@@ -1,7 +1,7 @@
 // src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/Theme.css';
+import './Theme.css';
 import './index.css';
 import App from './App';
 

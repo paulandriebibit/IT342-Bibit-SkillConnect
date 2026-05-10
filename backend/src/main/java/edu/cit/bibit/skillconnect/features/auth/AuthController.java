@@ -1,4 +1,4 @@
-package edu.cit.bibit.skillconnect.controller;
+package edu.cit.bibit.skillconnect.features.auth;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import edu.cit.bibit.skillconnect.model.User;
-import edu.cit.bibit.skillconnect.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/v1/auth")

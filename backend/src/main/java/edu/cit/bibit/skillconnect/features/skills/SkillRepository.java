@@ -1,10 +1,8 @@
-package edu.cit.bibit.skillconnect.repository;
+package edu.cit.bibit.skillconnect.features.skills;
+import java.util.List;
 
-import edu.cit.bibit.skillconnect.model.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface SkillRepository extends JpaRepository<Skill, Long> {

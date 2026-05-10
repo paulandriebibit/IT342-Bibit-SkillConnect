@@ -1,4 +1,4 @@
-package edu.cit.bibit.skillconnect.controller;
+package edu.cit.bibit.skillconnect.features.skills;
 
 import java.util.List;
 
@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import edu.cit.bibit.skillconnect.model.Skill;
-import edu.cit.bibit.skillconnect.repository.SkillRepository;
 
 @RestController
 @RequestMapping("/api/v1/skills")

@@ -1,15 +1,11 @@
-package edu.cit.bibit.skillconnect.repository;
+package edu.cit.bibit.skillconnect.features.bookings;
+import java.util.List;
 
-import edu.cit.bibit.skillconnect.model.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import java.util.List;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-    List<Booking> findByRequesterId(Long requesterId);
-    List<Booking> findByProviderId(Long providerId);
-    
-    // Add this method
+    // This derived query captures all activity for a specific User ID
     List<Booking> findByRequesterIdOrProviderId(Long requesterId, Long providerId);
 }

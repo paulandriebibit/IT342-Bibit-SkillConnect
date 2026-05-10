@@ -1,4 +1,4 @@
-package edu.cit.bibit.skillconnect.model;
+package edu.cit.bibit.skillconnect.features.bookings;
 
 import java.time.LocalDateTime;
 

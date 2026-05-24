@@ -21,6 +21,12 @@ public class Skill {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @org.hibernate.annotations.Formula("(SELECT u.profile_image FROM users u WHERE u.id = provider_id)")
+    private String providerImage;
+
+    public String getProviderImage() {
+    return this.providerImage;
+    }
     private String category;
 
 

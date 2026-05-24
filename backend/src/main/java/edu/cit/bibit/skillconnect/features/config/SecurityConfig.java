@@ -23,23 +23,27 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
-            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable CORS with configuration
+            .cors(cors -> cors.configurationSource(corsConfigurationSource())) 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/users/**").permitAll() 
+                .requestMatchers("/api/v1/admin/**").permitAll() 
                 .requestMatchers("/api/v1/skills/**").permitAll()
                 .requestMatchers("/api/v1/bookings/**").permitAll()
+                .requestMatchers("/api/v1/messages/**").permitAll()
                 .anyRequest().authenticated()
             );
+            
         return http.build();
     }
 
-    // Add this CORS configuration
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Allow React frontend
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
+        configuration.setExposedHeaders(Arrays.asList("Authorization"));
         configuration.setAllowCredentials(true);
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

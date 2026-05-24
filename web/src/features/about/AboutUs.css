@@ -1,0 +1,388 @@
+.corporate-about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1E293B;
+}
+
+/* Corporate Hero Banner */
+.corp-hero-banner {
+  background: #238B7A;
+  color: #FFFFFF;
+  padding: 48px 32px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.corp-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.corp-hero-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.corp-hero-subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Two-Column Corporate Layout Grid */
+.corp-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+}
+
+.corp-main-column,
+.corp-sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Crisp Corporate Cards */
+.corp-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.corp-card-header {
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.corp-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F172A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.about-subtitle {
+  font-size: 13px;
+  color: #64748B;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+/* Corporate Blockquote Descriptions */
+.about-description-block {
+  text-align: left;
+}
+
+.about-description-block p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+.about-description-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Minimalist Corporate Metrics */
+.sidebar-stat-card .simulator-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sim-metric {
+  text-align: center;
+}
+
+.sim-number {
+  font-size: 40px;
+  font-weight: 700;
+  color: #238B7A;
+  display: block;
+  letter-spacing: -1px;
+}
+
+.sim-label {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sim-btn {
+  background: #238B7A;
+  color: #FFFFFF;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.sim-btn:hover {
+  background: #1A6B64;
+}
+
+/* Executive Profile Architecture */
+.executive-profile-card .bio-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.bio-avatar {
+  width: 64px;
+  height: 64px;
+  background: #238B7A;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.bio-details {
+  text-align: left;
+}
+
+.bio-details h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+}
+
+.bio-role {
+  display: block;
+  font-size: 11px;
+  color: #238B7A;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.bio-details p {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Unified Tabs */
+.interactive-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.tab-choice {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  top: 1px;
+}
+
+.tab-choice:hover {
+  color: #238B7A;
+}
+
+.tab-choice.active {
+  color: #238B7A;
+  border-bottom: 2px solid #238B7A;
+}
+
+.tab-pane-view {
+  background: #F8FAFC;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid #E2E8F0;
+}
+
+.pane-content h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 6px;
+}
+
+.pane-content p {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Minimal FAQ Matrices */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item {
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.faq-trigger.active {
+  background: #F8FAFC;
+  color: #238B7A;
+}
+
+.faq-toggle-icon {
+  font-size: 9px;
+  color: #94A3B8;
+}
+
+.faq-content {
+  padding: 14px 20px;
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Form Styling */
+.interactive-faq-form {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #E2E8F0;
+  text-align: left;
+}
+
+.interactive-faq-form h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.interactive-faq-form form {
+  display: flex;
+  gap: 12px;
+}
+
+.input-with-icon {
+  flex: 1;
+}
+
+.faq-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+  font-size: 13px;
+  outline: none;
+  background: #F8FAFC;
+  font-family: inherit;
+}
+
+.faq-input:focus {
+  border-color: #238B7A;
+  background: #FFFFFF;
+}
+
+.faq-submit-btn {
+  background: #238B7A;
+  color: #FFFFFF;
+  border: none;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.faq-submit-btn:hover {
+  background: #1A6B64;
+}
+
+.faq-feedback {
+  margin-top: 12px;
+  padding: 10px;
+  background: #F0FDF4;
+  color: #065F46;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #D1FAE5;
+}
+
+/* Responsiveness adjustments */
+@media (max-width: 968px) {
+  .corp-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .interactive-faq-form form {
+    flex-direction: column;
+  }
+  .faq-submit-btn {
+    padding: 10px;
+  }
+}

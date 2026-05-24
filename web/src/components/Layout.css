@@ -1,228 +1,42 @@
-/* src/styles/Layout.css - Dashboard Design */
 .AppContainer {
   min-height: 100vh;
   background: #E8F4F0;
 }
 
-/* Navbar */
 .Navbar {
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .NavbarContainer {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .NavbarLogo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   color: #238B7A;
   text-decoration: none;
-  cursor: pointer;
-}
-
-.NavbarLogoIcon {
-  font-size: 28px;
-}
-
-.NavbarLogoText {
-  background: linear-gradient(135deg, #238B7A, #2FA89D);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.NavLinks {
-  display: flex;
-  gap: 20px;
-  align-items: center;
 }
 
 .NavLink {
   color: #475569;
   text-decoration: none;
   font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 10px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 6px;
 }
 
-.NavLink:hover {
+.NavLink:hover, .NavLinkActive {
   color: #238B7A;
-  background: #F0FDF4;
-}
-
-.NavLinkActive {
-  color: #238B7A;
-  background: #F0FDF4;
-}
-
-.UserInfo {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.UserName {
-  font-size: 14px;
-  font-weight: 500;
-  color: #1E293B;
-}
-
-.UserAvatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #238B7A, #2FA89D);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-}
-
-.LogoutBtn {
-  background: none;
-  border: none;
-  color: #EF4444;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
-}
-
-.LogoutBtn:hover {
-  background: #FEF2F2;
-}
-
-/* Mobile Menu */
-.MobileMenuBtn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #238B7A;
-  padding: 8px;
-}
-
-.MobileNav {
-  display: none;
-  flex-direction: column;
-  padding: 16px 24px;
-  border-top: 1px solid #E2E8F0;
-  background: white;
-}
-
-.MobileNavLink {
-  padding: 12px 16px;
-  color: #475569;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.MobileNavLink:hover {
-  background: #F0FDF4;
-  color: #238B7A;
-}
-
-.MobileLogoutBtn {
-  padding: 12px 16px;
-  background: none;
-  border: none;
-  text-align: left;
-  color: #EF4444;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .NavLinks {
-    display: none;
-  }
-  
-  .MobileMenuBtn {
-    display: block;
-  }
-  
-  .MobileNavOpen {
-    display: flex;
-  }
-  
-  .NavbarContainer {
-    padding: 12px 16px;
-  }
-  
-  .UserInfo {
-    display: none;
-  }
-}
-
-/* Hero Section */
-.HeroSection {
-  background: linear-gradient(135deg, #000000 0%, #238B7A 100%);
-  color: white;
-  padding: 60px 24px;
-  text-align: center;
-}
-
-.HeroTitle {
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.HeroSubtitle {
-  font-size: 18px;
-  opacity: 0.95;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.MainContent {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 40px 24px;
-}
-
-@media (max-width: 768px) {
-  .HeroTitle {
-    font-size: 28px;
-  }
-  
-  .HeroSubtitle {
-    font-size: 14px;
-  }
-  
-  .MainContent {
-    padding: 24px 16px;
-  }
+  background: #F8FAFC;
 }

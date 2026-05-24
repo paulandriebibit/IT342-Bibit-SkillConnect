@@ -1,32 +1,28 @@
-// src/features/bookings/BookingDashboard.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './BookingDashboard.css';
 
-const BookingDashboard = () => {
+const BookingDashboard = ({ onStartChat }) => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('all');
+
+  const [showDeclineModal, setShowDeclineModal] = useState(false);
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [targetedBookingId, setTargetedBookingId] = useState(null);
+  const [resultConfig, setResultConfig] = useState({ title: '', message: '', isSuccess: true });
   
   const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
-const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
+  const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
   const currentUserId = loggedInUser?.id;
-
-  console.log('Current User:', loggedInUser);
-  console.log('Current User ID:', currentUserId);
 
   useEffect(() => {
     fetchBookings();
   }, []);
 
-const fetchBookings = async () => {
+  const fetchBookings = async () => {
     try {
-      // 1. Point to the specific user activity endpoint
-      // 2. Use the currentUserId from your session
       const res = await axios.get(`http://localhost:8080/api/v1/bookings/my-bookings/${currentUserId}`);
-      
-      console.log('Filtered user activity:', res.data);
-      
       setBookings(res.data);
     } catch (err) {
       console.error('Error fetching filtered bookings:', err);
@@ -35,196 +31,103 @@ const fetchBookings = async () => {
     }
   };
 
-  const updateBookingStatus = async (bookingId, newStatus) => {
+  const processDeclineClick = (bookingId) => {
+    setTargetedBookingId(bookingId);
+    setShowDeclineModal(true);
+  };
+
+  const executeStatusChange = async (bookingId, newStatus) => {
     try {
       await axios.put(`http://localhost:8080/api/v1/bookings/${bookingId}/status`, { status: newStatus });
-      alert(`Booking ${newStatus.toLowerCase()} successfully!`);
       fetchBookings();
+      
+      if (newStatus === 'CANCELLED') {
+        setShowDeclineModal(false);
+        setResultConfig({
+          title: 'Request Declined',
+          message: 'The swap request has been rejected. The requester will be notified of this action.',
+          isSuccess: false
+        });
+      } else {
+        setResultConfig({
+          title: 'Swap Request Accepted',
+          message: 'You have successfully confirmed this swap! You can now message the student via the Friends tab.',
+          isSuccess: true
+        });
+      }
+      setShowResultModal(true);
     } catch (err) {
       console.error('Error updating status:', err);
-      alert('Failed to update booking status');
+      alert('Failed to update request status.');
     }
   };
 
-  const getStatusStyle = (status) => {
-    switch (status?.toUpperCase()) {
-      case 'CONFIRMED':
-        return { class: 'StatusConfirmed', label: '✓ Confirmed' };
-      case 'COMPLETED':
-        return { class: 'StatusCompleted', label: '✓ Completed' };
-      case 'CANCELLED':
-        return { class: 'StatusCancelled', label: '✗ Cancelled' };
-      default:
-        return { class: 'StatusPending', label: '⏳ Pending' };
-    }
-  };
+  const filteredBookings = bookings.filter((booking) => {
+    if (activeTab === 'all') return true;
+    if (activeTab === 'sent') return booking.requesterId === currentUserId;
+    if (activeTab === 'received') return booking.providerId === currentUserId;
+    return true;
+  });
 
-  const getMyBookings = () => {
-    console.log('Filtering for user ID:', currentUserId);
-    const filtered = bookings.filter(booking => {
-      const matches = booking.requesterId === currentUserId || booking.providerId === currentUserId;
-      if (matches) {
-        console.log('Found matching booking:', booking);
-      }
-      return matches;
-    });
-    console.log('My bookings filtered:', filtered);
-    return filtered;
-  };
-
-  const getFilteredBookings = () => {
-    const myBookings = getMyBookings();
-    
-    if (activeTab === 'all') return myBookings;
-    if (activeTab === 'received') {
-      return myBookings.filter(b => b.providerId === currentUserId);
-    }
-    if (activeTab === 'sent') {
-      return myBookings.filter(b => b.requesterId === currentUserId);
-    }
-    return myBookings;
-  };
-
-  const filteredBookings = getFilteredBookings();
-  
-  const stats = {
-    total: getMyBookings().length,
-    pending: getMyBookings().filter(b => b.status === 'PENDING').length,
-    confirmed: getMyBookings().filter(b => b.status === 'CONFIRMED').length,
-    completed: getMyBookings().filter(b => b.status === 'COMPLETED').length
-  };
-
-  if (loading) {
-    return (
-      <div className="BookingContainer">
-        <div style={{ textAlign: 'center', padding: '60px' }}>
-          <p>Loading your bookings...</p>
-        </div>
-      </div>
-    );
-  }
+  if (loading) return <div className="BookingContainer"><p>Loading bookings ledger...</p></div>;
 
   return (
     <div className="BookingContainer">
-      <div className="BookingHeader">
-        <h1 className="BookingTitle">My Activity</h1>
-        <p className="BookingSubtitle">Track your skill swap requests and upcoming sessions</p>
-      </div>
-
-      <div className="StatsGrid">
-        <div className="StatCard">
-          <div className="StatCardIcon"></div>
-          <div className="StatCardValue">{stats.total}</div>
-          <div className="StatCardLabel">My Exchanges</div>
-        </div>
-        <div className="StatCard">
-          <div className="StatCardIcon"></div>
-          <div className="StatCardValue">{stats.pending}</div>
-          <div className="StatCardLabel">Pending</div>
-        </div>
-        <div className="StatCard">
-          <div className="StatCardIcon"></div>
-          <div className="StatCardValue">{stats.confirmed}</div>
-          <div className="StatCardLabel">Confirmed</div>
-        </div>
-        <div className="StatCard">
-          <div className="StatCardIcon"></div>
-          <div className="StatCardValue">{stats.completed}</div>
-          <div className="StatCardLabel">Completed</div>
-        </div>
-      </div>
-
       <div className="BookingTabs">
-        <button 
-          className={`TabButton ${activeTab === 'all' ? 'Active' : ''}`}
-          onClick={() => setActiveTab('all')}
-        >
-          All ({getMyBookings().length})
-        </button>
-        <button 
-          className={`TabButton ${activeTab === 'received' ? 'Active' : ''}`}
-          onClick={() => setActiveTab('received')}
-        >
-          Received ({getMyBookings().filter(b => b.providerId === currentUserId).length})
-        </button>
-        <button 
-          className={`TabButton ${activeTab === 'sent' ? 'Active' : ''}`}
-          onClick={() => setActiveTab('sent')}
-        >
-          Sent ({getMyBookings().filter(b => b.requesterId === currentUserId).length})
-        </button>
+        <button className={`TabButton ${activeTab === 'all' ? 'Active' : ''}`} onClick={() => setActiveTab('all')}>All Activities</button>
+        <button className={`TabButton ${activeTab === 'sent' ? 'Active' : ''}`} onClick={() => setActiveTab('sent')}>Sent Requests</button>
+        <button className={`TabButton ${activeTab === 'received' ? 'Active' : ''}`} onClick={() => setActiveTab('received')}>Received Offers</button>
       </div>
 
       <div className="BookingsCard">
         {filteredBookings.length === 0 ? (
-          <div className="EmptyBookings">
-            <div className="EmptyIcon"></div>
-            <h3 className="EmptyTitle">No bookings yet</h3>
-            <p className="EmptyText">Visit the Marketplace to start a skill swap!</p>
-            <p style={{ fontSize: '12px', color: '#94A3B8', marginTop: '10px' }}>
-              Debug: Your User ID is {currentUserId}
-            </p>
-          </div>
+          <div className="EmptyBookings"><span className="EmptyTitle">No Activity Logged</span></div>
         ) : (
-          <table className="BookingsTable">
+          <table className="BookingsTable" style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr>
-                <th>SKILL REQUESTED</th>
-                <th>{activeTab === 'received' ? 'REQUESTED BY' : 'PROVIDED BY'}</th>
-                <th>STATUS</th>
-                <th>DATE</th>
-                {activeTab === 'received' && <th>ACTIONS</th>}
+              <tr style={{ background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
+                <th style={{ padding: '12px', textAlign: 'left' }}>Skill Item</th>
+                <th style={{ padding: '12px', textAlign: 'left' }}>Swapping Partner</th>
+                <th style={{ padding: '12px', textAlign: 'left' }}>Assignment Context</th>
+                <th style={{ padding: '12px', textAlign: 'left' }}>Status</th>
+                <th style={{ padding: '12px', textAlign: 'left' }}>Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredBookings.map((booking) => {
-                const statusStyle = getStatusStyle(booking.status);
-                const isReceived = booking.providerId === currentUserId;
-                const canAct = isReceived && booking.status === 'PENDING';
-                
+                const isRequester = booking.requesterId === currentUserId;
+                const displayPartnerName = isRequester ? booking.providerName : booking.requesterName;
+                const partnerId = isRequester ? booking.providerId : booking.requesterId;
+                const canAct = booking.status === 'PENDING' && !isRequester;
+
                 return (
-                  <tr key={booking.id}>
-                    <td style={{ fontWeight: '600', color: '#1E293B' }}>
-                      {booking.skillTitle}
-                    </td>
-                    <td>
-                      {activeTab === 'received' 
-                        ? (booking.requesterName || 'Unknown User')
-                        : (booking.providerName || 'Unknown User')
-                      }
-                    </td>
-                    <td>
-                      <span className={`StatusBadge ${statusStyle.class}`}>
-                        {statusStyle.label}
+                  <tr key={booking.id} style={{ borderBottom: '1px solid #F1F5F9' }}>
+                    <td style={{ padding: '16px 12px', fontWeight: '600' }}>{booking.skillTitle}</td>
+                    <td style={{ padding: '16px 12px' }}>{displayPartnerName}</td>
+                    <td style={{ padding: '16px 12px' }}>
+                      <span className={`StatusBadge ${isRequester ? 'StatusPending' : 'StatusConfirmed'}`} style={{ fontSize: '11px' }}>
+                        {isRequester ? 'Outgoing Request' : 'Incoming Offer'}
                       </span>
                     </td>
-                    <td style={{ color: '#64748B' }}>
-                      {new Date(booking.createdAt).toLocaleDateString()}
+                    <td style={{ padding: '16px 12px' }}>
+                      <span className={`StatusBadge Status${booking.status}`}>{booking.status}</span>
                     </td>
-                    {activeTab === 'received' && (
-                      <td>
-                        {canAct ? (
-                          <div className="ActionButtons">
-                            <button
-                              className="ActionBtn ActionConfirm"
-                              onClick={() => updateBookingStatus(booking.id, 'CONFIRMED')}
-                            >
-                              ✓ Accept
-                            </button>
-                            <button
-                              className="ActionBtn ActionCancel"
-                              onClick={() => updateBookingStatus(booking.id, 'CANCELLED')}
-                            >
-                              ✗ Decline
-                            </button>
-                          </div>
-                        ) : (
-                          <span style={{ color: '#94A3B8', fontSize: '12px' }}>
-                            {booking.status === 'CONFIRMED' ? 'Confirmed' : 'No action needed'}
-                          </span>
+                    <td style={{ padding: '16px 12px' }}>
+                      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                        {canAct && (
+                          <>
+                            <button className="ActionBtn ActionConfirm" style={{ padding: '6px 12px', background: '#238B7A', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} onClick={() => executeStatusChange(booking.id, 'CONFIRMED')}>✓ Accept</button>
+                            <button className="ActionBtn ActionCancel" style={{ padding: '6px 12px', background: '#EF4444', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} onClick={() => processDeclineClick(booking.id)}>✗ Decline</button>
+                          </>
                         )}
-                      </td>
-                    )}
+                        <button 
+                          style={{ padding: '6px 12px', background: 'transparent', border: '1px solid #238B7A', color: '#238B7A', borderRadius: '4px', cursor: 'pointer', fontSize: '12px', fontWeight: '600' }}
+                          onClick={() => onStartChat({ id: partnerId, name: displayPartnerName })}
+                        >
+                          💬 Chat
+                        </button>
+                      </div>
+                    </td>
                   </tr>
                 );
               })}
@@ -232,6 +135,32 @@ const fetchBookings = async () => {
           </table>
         )}
       </div>
+
+      {showDeclineModal && (
+        <div className="modal-overlay" onClick={() => setShowDeclineModal(false)}>
+          <div className="logout-modal" style={{ maxWidth: '400px' }} onClick={(e) => e.stopPropagation()}>
+            <h3 className="modal-title" style={{ color: '#DC2626' }}>Decline Swap Offer?</h3>
+            <p className="modal-message">Are you sure you want to reject this skill trade? This operation will notify the requesting student.</p>
+            <div className="modal-buttons">
+              <button className="modal-btn cancel" onClick={() => setShowDeclineModal(false)}>Cancel</button>
+              <button className="modal-btn confirm" style={{ backgroundColor: '#DC2626' }} onClick={() => executeStatusChange(targetedBookingId, 'CANCELLED')}>Decline Offer</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showResultModal && (
+        <div className="modal-overlay" onClick={() => setShowResultModal(false)}>
+          <div className="logout-modal" style={{ maxWidth: '420px', textAlign: 'center', padding: '30px 20px' }} onClick={(e) => e.stopPropagation()}>
+            <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: resultConfig.isSuccess ? '#DCFCE7' : '#FEE2E2', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+              <span style={{ fontSize: '24px', color: resultConfig.isSuccess ? '#16A34A' : '#DC2626' }}>{resultConfig.isSuccess ? '✓' : '✕'}</span>
+            </div>
+            <h3 className="modal-title" style={{ fontSize: '18px', marginBottom: '8px' }}>{resultConfig.title}</h3>
+            <p className="modal-message" style={{ fontSize: '13px', marginBottom: '20px' }}>{resultConfig.message}</p>
+            <button className="modal-btn confirm" style={{ background: '#238B7A', width: '100%' }} onClick={() => setShowResultModal(false)}>Dismiss</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

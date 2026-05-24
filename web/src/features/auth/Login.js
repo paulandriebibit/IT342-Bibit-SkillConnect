@@ -12,6 +12,7 @@ const Login = ({ onLoginSuccess, onSwitchToRegister }) => {
   const handleChange = (e) => setCreds({ ...creds, [e.target.name]: e.target.value });
 
  // Inside handleLogin function, update this part:
+// src/features/auth/Login.js - Complete handleLogin Function Replacement
 const handleLogin = async (e) => {
   e.preventDefault();
   setLoading(true);
@@ -20,12 +21,17 @@ const handleLogin = async (e) => {
   try {
     const response = await axios.post('http://localhost:8080/api/v1/auth/login', creds);
     
-    // Make sure we're storing the user with ID
+    
     const userData = {
-      id: response.data.id,           // ← CRITICAL: Make sure ID is stored
-      firstname: response.data.firstname || response.data.name,
-      lastname: response.data.lastname || '',
+      id: response.data.id,
+      firstname: response.data.firstname,
+      lastname: response.data.lastname,
       email: response.data.email,
+      role: response.data.role, 
+      studentId: response.data.studentId,
+      major: response.data.major,
+      phone: response.data.phone || '',
+      bio: response.data.bio || '',
       rememberMe
     };
     
@@ -35,7 +41,7 @@ const handleLogin = async (e) => {
       sessionStorage.setItem('user', JSON.stringify(userData));
     }
     
-    if (onLoginSuccess) onLoginSuccess();
+    if (onLoginSuccess) onLoginSuccess(userData);
   } catch (err) {
     setError(err.response?.data?.message || "Invalid email or password");
   } finally {

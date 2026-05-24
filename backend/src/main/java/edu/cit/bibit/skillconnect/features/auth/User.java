@@ -9,16 +9,17 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
+
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "firstname", nullable = false)
     private String firstname;
 
-    @Column(nullable = false)
+    @Column(name = "lastname", nullable = false)
     private String lastname;
 
     @Column(unique = true, nullable = false)
@@ -27,10 +28,38 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    // Default Constructor
+    
+    @Column(name = "student_id")
+    private String studentId;
+
+    @Column(name = "major")
+    private String major;
+    
+    @Column(name = "phone")
+    private String phone;
+    
+    @Column(name = "bio", columnDefinition = "TEXT")
+    private String bio;
+    
+    @Column(name = "role")
+    private String role = "STUDENT";
+    
+    @Column(name = "created_at")
+    private String createdAt;
+
+    @Column(columnDefinition = "TEXT") 
+    private String profileImage;
+
+    public String getProfileImage() {
+    return this.profileImage;
+}
+
+    public void setProfileImage(String profileImage) {
+    this.profileImage = profileImage;
+}
     public User() {}
 
-    // Getters and Setters
+   
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -45,4 +74,22 @@ public class User {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public String getStudentId() { return studentId; }
+    public void setStudentId(String studentId) { this.studentId = studentId; }
+
+    public String getMajor() { return major; }
+    public void setMajor(String major) { this.major = major; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    public String getCreatedAt() { return createdAt; }
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 }

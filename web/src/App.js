@@ -7,9 +7,9 @@ import BookingDashboard from './features/bookings/BookingDashboard';
 import AdminDashboard from './features/admin/AdminDashboard'; 
 import FriendsChat from './features/messages/FriendsChat';
 import Settings from './features/settings/Settings';
+import VerifiedUsersList from './features/admin/VerifiedUsersList';
 import './Theme.css';
 import './components/Sidebar.css';
-import AboutUs from './features/about/AboutUs';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,6 +23,7 @@ function App() {
   const [activeNotif, setActiveNotif] = useState(null);
   const [targetedChatPartner, setTargetedChatPartner] = useState(null);
 
+  // Hook 1: Local Session Handshake on Mount
   useEffect(() => {
     const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
     if (storedUser) {
@@ -33,6 +34,34 @@ function App() {
     }
   }, []);
 
+  // Hook 2: Capture Google OAuth URL Parameters Interceptor
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isOAuthSuccess = urlParams.get('oauth_success');
+
+    if (isOAuthSuccess === 'true') {
+      const oauthUser = {
+        id: parseInt(urlParams.get('id'), 10),
+        firstname: urlParams.get('firstname'),
+        lastname: urlParams.get('lastname'),
+        email: urlParams.get('email'),
+        role: urlParams.get('role'),
+        major: urlParams.get('major'),
+        phone: '',
+        bio: ''
+      };
+
+      sessionStorage.setItem('user', JSON.stringify(oauthUser));
+      setUser(oauthUser);
+      setIsLoggedIn(true);
+      setCurrentPage(oauthUser?.role === 'ADMIN' ? 'admin-terminal' : 'marketplace');
+
+      // Wipe query strings from browser history bar smoothly
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
+
+  // Hook 3: Real-Time Notification SSE Stream Listener
   useEffect(() => {
     if (!isLoggedIn || !user?.id || user?.role === 'ADMIN') return;
 
@@ -75,11 +104,11 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'admin-terminal': return <AdminDashboard />;
+      case 'verified-users': return <VerifiedUsersList />;
       case 'marketplace': return <SkillCatalog onStartChat={handleInitiateChat} />;
       case 'bookings': return <BookingDashboard onStartChat={handleInitiateChat} />;
       case 'messages': return <FriendsChat preselectedPartner={targetedChatPartner} />;
       case 'settings': return <Settings onProfileUpdate={handleProfileUpdate} />;
-      case 'about-us': return <AboutUs />; 
       default: return <SkillCatalog onStartChat={handleInitiateChat} />;
     }
   };
@@ -87,11 +116,11 @@ function App() {
   const getPageTitle = () => {
     switch(currentPage) {
       case 'admin-terminal': return 'Oversight Terminal';
+      case 'verified-users': return 'Verified Users Ledger';
       case 'marketplace': return 'Skill Marketplace';
       case 'bookings': return 'My Bookings';
       case 'messages': return 'Friends Chat';
       case 'settings': return 'Settings';
-      case 'about-us': return 'About SkillConnect'; 
       default: return 'Dashboard';
     }
   };
@@ -99,11 +128,11 @@ function App() {
   const getPageSubtitle = () => {
     switch(currentPage) {
       case 'admin-terminal': return 'System oversight and platform auditing controls';
+      case 'verified-users': return 'Authorized student identity nodes active on the network mesh';
       case 'marketplace': return 'Discover and swap skills with fellow CIT-U students';
       case 'bookings': return 'Track and manage all your skill swap requests';
       case 'messages': return 'Chat with your skill swap matches in real time';
       case 'settings': return 'Manage your account settings and preferences';
-      case 'about-us': return 'Learn more about the peer-to-peer barter ecosystem'; 
       default: return 'Welcome back to SkillConnect';
     }
   };

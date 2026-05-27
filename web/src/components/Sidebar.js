@@ -7,6 +7,7 @@ const Sidebar = ({ currentPage, setCurrentPage, user, onLogout, isOpen, setIsOpe
   const menuItems = user?.role === 'ADMIN' 
     ? [
         { id: 'admin-terminal', label: 'Admin Console' },
+        { id: 'verified-users', label: 'Verified Users' },
         { id: 'marketplace', label: 'View Marketplace' },
         { id: 'settings', label: 'Settings' }
       ]
@@ -14,8 +15,7 @@ const Sidebar = ({ currentPage, setCurrentPage, user, onLogout, isOpen, setIsOpe
         { id: 'marketplace', label: 'Marketplace' },
         { id: 'bookings', label: 'Bookings' },
         { id: 'messages', label: 'Friends' },
-        { id: 'settings', label: 'Settings' },
-        { id: 'about-us', label: 'About Us' }
+        { id: 'settings', label: 'Settings' }
       ];
 
   const handleNavClick = (pageId) => {
@@ -32,11 +32,11 @@ const Sidebar = ({ currentPage, setCurrentPage, user, onLogout, isOpen, setIsOpe
         <div className="sidebar-logo">
           <div><span className="logo-text">SkillConnect</span></div>
         </div>
-        <div className="sidebar-user-section">
-          <h3>
+        <div className="sidebar-user-section" style={{ padding: '20px', borderBottom: '1px solid rgba(255, 255, 255, 0.2)', textAlign: 'center' }}>
+          <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: '600', color: '#F8FAFC' }}>
             {user?.firstname} {user?.lastname}
           </h3>
-          <span>
+          <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.75)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             {user?.role === 'ADMIN' ? 'Administrator' : user?.major || 'Student'}
           </span>
         </div>

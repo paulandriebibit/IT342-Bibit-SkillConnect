@@ -105,7 +105,7 @@ const FriendsChat = ({ preselectedPartner }) => {
                 onClick={() => setActivePartner(c)}
               >
                 <div style={{ fontWeight: '600', fontSize: '14px', color: '#1E293B' }}>{c.name}</div>
-                <span style={{ fontSize: '11px', color: '#238B7A', fontWeight: '500' }}>Active Node Connected</span>
+                <span style={{ fontSize: '11px', color: '#238B7A', fontWeight: '500' }}>Active</span>
               </div>
             ))
           )}
@@ -117,7 +117,6 @@ const FriendsChat = ({ preselectedPartner }) => {
           <>
             <div style={{ padding: '16px 24px', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC' }}>
               <div style={{ fontWeight: '700', fontSize: '15px', color: '#1E293B' }}>{activePartner.name}</div>
-              <span style={{ fontSize: '12px', color: '#64748B' }}>Direct P2P Workspace Communication Stream</span>
             </div>
 
             <div style={{ flex: '1', padding: '24px', overflowY: 'auto', background: '#F1F5F9', display: 'flex', flexDirection: 'column', gap: '12px' }}>

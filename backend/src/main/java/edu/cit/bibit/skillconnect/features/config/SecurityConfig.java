@@ -1,7 +1,7 @@
 package edu.cit.bibit.skillconnect.features.config;
 
 import java.util.Arrays;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +13,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 public class SecurityConfig {
+
+    @Autowired
+    private OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -32,6 +35,15 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/bookings/**").permitAll()
                 .requestMatchers("/api/v1/messages/**").permitAll()
                 .anyRequest().authenticated()
+            )
+            .oauth2Login(oauth2 -> oauth2
+                .successHandler(oAuth2LoginSuccessHandler)
+                .failureHandler((request, response, exception) -> {
+                    System.err.println(">>> [OAUTH2 FAILURE]: " + exception.getMessage());
+                    exception.printStackTrace();
+                    String errorMessage = exception.getMessage().replace(" ", "_");
+                    response.sendRedirect("http://localhost:3000/login?error=" + errorMessage);
+                })
             );
             
         return http.build();

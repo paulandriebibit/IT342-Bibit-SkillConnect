@@ -168,27 +168,27 @@ const StudentSettings = ({ loggedInUser, onProfileUpdate }) => {
 
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">First Name (Read-Only)</label>
+                  <label className="form-label">First Name</label>
                   <input type="text" className="form-input read-only-field" value={formData.firstname} readOnly style={{ backgroundColor: '#F1F5F9', color: '#64748B', cursor: 'not-allowed' }} />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Last Name (Read-Only)</label>
+                  <label className="form-label">Last Name</label>
                   <input type="text" className="form-input read-only-field" value={formData.lastname} readOnly style={{ backgroundColor: '#F1F5F9', color: '#64748B', cursor: 'not-allowed' }} />
                 </div>
               </div>
 
               <div className="form-group">
-                <label className="form-label">CIT-U Academic Email Line (Read-Only)</label>
+                <label className="form-label">CIT-U Academic Email</label>
                 <input type="email" className="form-input read-only-field" value={formData.email} readOnly style={{ backgroundColor: '#F1F5F9', color: '#64748B', cursor: 'not-allowed' }} />
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">Student ID Reference (Read-Only)</label>
+                  <label className="form-label">Student ID Reference</label>
                   <input type="text" className="form-input read-only-field" value={formData.studentId} readOnly style={{ backgroundColor: '#F1F5F9', color: '#64748B', cursor: 'not-allowed' }} />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">College Affiliation (Read-Only)</label>
+                  <label className="form-label">College Affiliation </label>
                   <input type="text" className="form-input read-only-field" value={formData.major} readOnly style={{ backgroundColor: '#F1F5F9', color: '#64748B', cursor: 'not-allowed' }} />
                 </div>
               </div>
@@ -228,13 +228,13 @@ const StudentSettings = ({ loggedInUser, onProfileUpdate }) => {
 
         {activeTab === 'security' && (
           <div className="settings-section">
-            <h2 className="section-title">Modify Security Passphrase</h2>
+            <h2 className="section-title">Modify Security Password</h2>
             {passwordSuccess && <div className="success-message">{passwordSuccess}</div>}
             {passwordError && <div className="error-message">{passwordError}</div>}
             
             <form onSubmit={handlePasswordSubmit}>
               <div className="form-group">
-                <label className="form-label">Current Security Key Phrase</label>
+                <label className="form-label">Current Security Key</label>
                 <input 
                   type="password" 
                   name="currentPassword" 
@@ -246,7 +246,7 @@ const StudentSettings = ({ loggedInUser, onProfileUpdate }) => {
               </div>
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">New Password Selection</label>
+                  <label className="form-label">New Password</label>
                   <input 
                     type="password" 
                     name="newPassword" 
@@ -258,7 +258,7 @@ const StudentSettings = ({ loggedInUser, onProfileUpdate }) => {
                   <p className="help-text">Minimum 6 characters required</p>
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Verify New Password Phrase</label>
+                  <label className="form-label">Verify New Password</label>
                   <input 
                     type="password" 
                     name="confirmPassword" 
@@ -279,7 +279,7 @@ const StudentSettings = ({ loggedInUser, onProfileUpdate }) => {
         {activeTab === 'account' && (
           <div className="settings-section">
             <h2 className="section-title">Institutional Verification Profile</h2>
-            <div className="info-card"><div className="info-label">Clearance Verification</div><div className="info-value">Active Verified Student Node</div></div>
+            <div className="info-card"><div className="info-label">Clearance Verification</div><div className="info-value">Active Verified Student</div></div>
           </div>
         )}
       </div>

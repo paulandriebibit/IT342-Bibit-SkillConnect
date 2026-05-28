@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8F4F0"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offer a New Skill"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share your expertise with the CIT-U directory network"
+            android:textColor="#64748B"
+            android:textSize="14sp"
+            android:layout_marginBottom="32dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skill Title"
+            android:textColor="#1E293B"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etSkillTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="e.g., Spring Boot REST APIs"
+            android:inputType="text"
+            android:background="#FFFFFF"
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category Division"
+            android:textColor="#1E293B"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detailed Description"
+            android:textColor="#1E293B"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etSkillDescription"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Describe what you can teach your peers..."
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="32dp" />
+
+        <Button
+            android:id="@+id/btnSubmitSkill"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="POST TO MARKETPLACE"
+            android:backgroundTint="#238B7A"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnCancelOffer"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Cancel"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#64748B"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+    </LinearLayout>
+</ScrollView>

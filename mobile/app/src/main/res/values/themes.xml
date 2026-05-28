@@ -1,9 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Mobile" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.SkillConnect" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryDark">@color/brand_primary_dark</item>
+        <item name="colorAccent">@color/brand_primary</item>
+        <item name="android:windowBackground">@color/surface_canvas</item>
     </style>
-
-    <style name="Theme.Mobile" parent="Base.Theme.Mobile" />
 </resources>

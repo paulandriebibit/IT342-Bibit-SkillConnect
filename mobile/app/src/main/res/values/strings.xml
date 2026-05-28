@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">mobile</string>
+    <string name="my_bookings_ledger">My Bookings Ledger</string>
+    <string name="skill_marketplace">Skill Marketplace</string>
+    <string name="offer_skill_desc">Offer a new skill</string>
+    <string name="select_major">Select Major</string>
 </resources>

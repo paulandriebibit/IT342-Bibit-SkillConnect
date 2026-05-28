@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/surface_canvas"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SkillConnect Hub"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/brand_primary"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select an operational directory node"
+        android:textColor="@color/text_muted"
+        android:textSize="14sp"
+        android:layout_marginBottom="48dp"/>
+
+    <Button
+        android:id="@+id/btnMarketplace"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Open Skill Marketplace"
+        android:backgroundTint="@color/brand_primary"
+        android:textColor="@color/surface_card"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnBookings"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="View My Bookings"
+        android:backgroundTint="@color/brand_primary"
+        android:textColor="@color/surface_card"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Profile Settings"
+        android:backgroundTint="@color/brand_primary"
+        android:textColor="@color/surface_card"
+        android:textStyle="bold"
+        android:layout_marginBottom="48dp"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout Session"
+        android:backgroundTint="@color/action_cancel"
+        android:textColor="@color/surface_card"/>
+</LinearLayout>
